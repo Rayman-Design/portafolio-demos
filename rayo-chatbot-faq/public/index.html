@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rayo · IA Labs · Rayman Design</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="rayo.css">
+</head>
+<body>
+<main class="rayo" aria-label="Demo del asistente Rayo">
+  <header class="rayo-head">
+    <!-- Para usar la imagen oficial de Rayo, cambia el <span> por: <img class="rayo-avatar" src="rayo.png" alt="Rayo"> -->
+    <span class="rayo-avatar" aria-hidden="true">R</span>
+    <div class="rayo-title">
+      <strong>Rayo</strong>
+      <span>Asistente de Rayman Design · IA Labs</span>
+    </div>
+    <span id="rayo-mode" class="rayo-badge">Cargando…</span>
+  </header>
+
+  <section id="rayo-log" class="rayo-log" aria-live="polite">
+    <div class="msg bot">Hola, soy Rayo. Pregúntame sobre páginas web, aplicaciones a la medida, agentes de IA, SEO, tiempos o formas de pago de Rayman Design.</div>
+  </section>
+
+  <div id="rayo-chips" class="rayo-chips" aria-label="Preguntas sugeridas"></div>
+
+  <form id="rayo-form" class="rayo-form" autocomplete="off">
+    <label for="rayo-input" class="sr-only">Tu pregunta</label>
+    <input id="rayo-input" type="text" maxlength="400" placeholder="Escribe tu pregunta…" required>
+    <button id="rayo-send" type="submit">Enviar</button>
+  </form>
+
+  <footer class="rayo-foot">
+    Demo pública. No escribas datos personales. En Rayman Design la IA es el copiloto: una persona revisa y tú apruebas.
+  </footer>
+</main>
+<script src="rayo.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>API de películas</title>
+<style>
+:root{--ground:#f6f5f2;--card:#fff;--ink:#1c1c1c;--muted:#6b6b6b;--rule:#e2e0db;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--ground:#141414;--card:#1e1e1e;--ink:#ecebe8;--muted:#9a9a9a;--rule:#333}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.45 var(--sans)}
+.wrap{max-width:680px;margin:0 auto;padding:20px 16px 48px}
+h1{font:600 28px/1.15 var(--serif);margin:0 0 6px}
+h2{font:600 20px/1.2 var(--serif);margin:28px 0 10px}
+.kicker{color:var(--muted);font-size:14px;margin:0 0 4px}
+.lede{margin:12px 0 0}
+.note{border:1px solid var(--rule);background:var(--card);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--muted);margin-top:12px}
+code,.chip{font-family:var(--mono);font-size:13px}
+.chip{display:inline-block;border:1px solid var(--rule);border-radius:999px;padding:1px 8px;margin-right:6px;background:var(--card)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:8px 10px;width:100%}
+button{font:inherit;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:var(--ground);border-radius:8px;padding:8px 14px}
+button.sec{background:transparent;color:var(--ink);border-color:var(--rule)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;margin:0 0 10px}
+.card b{font-family:var(--serif);font-size:17px}
+.facts{color:var(--muted);font-size:14px}
+.card .row{margin-top:8px}
+.card button{padding:5px 10px;font-size:14px}
+label{display:block;font-size:14px;color:var(--muted);margin:8px 0 3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+pre{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:10px 12px;overflow:auto;font:13px/1.4 var(--mono);white-space:pre-wrap;word-break:break-word;margin:6px 0 0}
+.status{font-family:var(--mono);font-size:13px}
+.err{color:#b3261e}
+@media (prefers-color-scheme:dark){.err{color:#f2b8b5}}
+</style>
+</head>
+<body><div class="wrap">
+<h1>API de películas en .NET 10</h1>
+<p class="kicker">Demo de portafolio, Rayman Design</p>
+<p class="lede">Explorador de prueba para la API de películas. Cada botón hace una petición real a la API y abajo ves la respuesta tal cual.</p>
+<div class="note">Esta página es solo una interfaz de prueba y no forma parte del proyecto. La API real responde en <a href="/api/peliculas"><code>/api/peliculas</code></a> con JSON. Las películas son inventadas y los cambios se borran cuando la API se reinicia.</div>
+
+<h2>Películas</h2>
+<div class="row">
+  <div style="flex:1;min-width:160px"><input id="genero" placeholder="Filtrar por género, por ejemplo comedia"></div>
+  <button id="btnFiltrar">Filtrar</button>
+  <button class="sec" id="btnTodas">Todas</button>
+</div>
+<div id="lista" style="margin-top:12px"></div>
+
+<h2 id="tituloForm">Agregar película</h2>
+<form id="form" class="card" autocomplete="off">
+  <input type="hidden" id="fid">
+  <label for="ftitulo">Título</label><input id="ftitulo" maxlength="200">
+  <label for="fdirector">Director</label><input id="fdirector" maxlength="100">
+  <div class="grid2">
+    <div><label for="fanio">Año</label><input id="fanio" type="number" inputmode="numeric"></div>
+    <div><label for="fgenero">Género</label><input id="fgenero" maxlength="50"></div>
+    <div><label for="fduracion">Duración (minutos)</label><input id="fduracion" type="number" inputmode="numeric"></div>
+    <div><label for="fcalif">Calificación (0 a 10, opcional)</label><input id="fcalif" type="number" step="0.1" inputmode="decimal"></div>
+  </div>
+  <div class="row" style="margin-top:12px"><button type="submit" id="btnGuardar">Crear (POST)</button><button type="button" class="sec" id="btnCancelar" hidden>Cancelar edición</button></div>
+</form>
+
+<h2>Última respuesta de la API</h2>
+<div class="status" id="status">Todavía no hay peticiones.</div>
+<pre id="raw"></pre>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(method,url,body){
+  const opt={method,headers:{}};
+  if(body!==undefined){opt.headers['Content-Type']='application/json';opt.body=JSON.stringify(body)}
+  const r=await fetch(url,opt);const txt=await r.text();let data=null;try{data=txt?JSON.parse(txt):null}catch(e){data=txt}
+  const loc=r.headers.get('Location');
+  $('status').innerHTML=esc(method+' '+url)+' &rarr; <b class="'+(r.ok?'':'err')+'">'+r.status+' '+esc(r.statusText||'')+'</b>'+(loc?' &middot; Location: '+esc(loc):'');
+  $('raw').textContent=txt?(typeof data==='string'?data:JSON.stringify(data,null,2)):'(sin cuerpo)';
+  return {ok:r.ok,status:r.status,data};
+}
+async function cargar(genero){
+  const url='/api/peliculas'+(genero?'?genero='+encodeURIComponent(genero):'');
+  const r=await api('GET',url);const l=$('lista');
+  if(!r.ok||!Array.isArray(r.data)){l.innerHTML='<p class="err">No se pudo cargar la lista.</p>';return}
+  if(!r.data.length){l.innerHTML='<p class="facts">No hay películas con ese género.</p>';return}
+  l.innerHTML=r.data.map(p=>'<div class="card"><b>'+esc(p.titulo)+'</b><div class="facts">'+esc(p.director)+', '+esc(p.anio)+', '+esc(p.genero)+', '+esc(p.duracionMinutos)+' min'+(p.calificacion!=null?', '+esc(p.calificacion)+'/10':', sin calificación')+'</div><div class="row"><span class="chip">id '+esc(p.id)+'</span><button class="sec" data-ver="'+p.id+'">Ver (GET)</button><button class="sec" data-editar="'+p.id+'">Editar (PUT)</button><button class="sec" data-borrar="'+p.id+'">Borrar (DELETE)</button></div></div>').join('');
+}
+function limpiar(){['fid','ftitulo','fdirector','fanio','fgenero','fduracion','fcalif'].forEach(i=>$(i).value='');$('tituloForm').textContent='Agregar película';$('btnGuardar').textContent='Crear (POST)';$('btnCancelar').hidden=true}
+$('lista').addEventListener('click',async e=>{
+  const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.ver){await api('GET','/api/peliculas/'+b.dataset.ver);$('raw').scrollIntoView({behavior:'smooth'})}
+  if(b.dataset.editar){const r=await api('GET','/api/peliculas/'+b.dataset.editar);if(r.ok){const p=r.data;$('fid').value=p.id;$('ftitulo').value=p.titulo;$('fdirector').value=p.director;$('fanio').value=p.anio;$('fgenero').value=p.genero;$('fduracion').value=p.duracionMinutos;$('fcalif').value=p.calificacion??'';$('tituloForm').textContent='Editar película '+p.id;$('btnGuardar').textContent='Guardar cambios (PUT)';$('btnCancelar').hidden=false;$('form').scrollIntoView({behavior:'smooth'})}}
+  if(b.dataset.borrar){if(!confirm('¿Borrar la película '+b.dataset.borrar+'?'))return;await api('DELETE','/api/peliculas/'+b.dataset.borrar);const st=$('status').innerHTML,raw=$('raw').textContent;await cargar($('genero').value.trim());$('status').innerHTML=st;$('raw').textContent=raw}
+});
+$('form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const num=v=>v===''?0:Number(v);
+  const body={titulo:$('ftitulo').value,director:$('fdirector').value,anio:num($('fanio').value),genero:$('fgenero').value,duracionMinutos:num($('fduracion').value),calificacion:$('fcalif').value===''?null:Number($('fcalif').value)};
+  const id=$('fid').value;
+  const r=id?await api('PUT','/api/peliculas/'+id,body):await api('POST','/api/peliculas',body);
+  if(r.ok){const st=$('status').innerHTML,raw=$('raw').textContent;limpiar();await cargar($('genero').value.trim());$('status').innerHTML=st;$('raw').textContent=raw}
+  $('raw').scrollIntoView({behavior:'smooth'});
+});
+$('btnCancelar').onclick=limpiar;
+$('btnFiltrar').onclick=()=>cargar($('genero').value.trim());
+$('btnTodas').onclick=()=>{$('genero').value='';cargar('')};
+$('genero').addEventListener('keydown',e=>{if(e.key==='Enter')cargar($('genero').value.trim())});
+cargar('');
+</script>
+</body></html>

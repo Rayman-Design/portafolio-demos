@@ -1,0 +1,132 @@
+{
+  "fuente": "Contenido público de https://www.raymandesign.com (inicio, /propuestas/, /contactenos/, /soluciones-digitales/conectividad-e-integraciones-inteligentes/agentes/, /soluciones-digitales/ingenieria-y-desarrollo/aplicaciones-a-la-medida/, /soluciones-digitales/ingenieria-y-desarrollo/ecosistema-web/diseno-de-paginas-web/, /soluciones-digitales/ingenieria-y-desarrollo/ecosistema-web/posicionamiento-seo/), revisado el 28 de octubre de 2026.",
+  "contacto": {
+    "email": "info@raymandesign.com",
+    "celular": "+52 1 55 6907 5236",
+    "whatsapp": "+57 315 8422523",
+    "ubicacion": "Bogotá, Colombia / Poza Rica, Veracruz, México",
+    "web_contacto": "https://www.raymandesign.com/contactenos/"
+  },
+  "entradas": [
+    {
+      "id": "quienes",
+      "pregunta": "¿Qué es Rayman Design?",
+      "palabras": ["rayman", "quienes son", "quiénes son", "agencia", "experiencia", "empresa"],
+      "respuesta": "Rayman Design & Tech Studio es una agencia de diseño y desarrollo web con más de 30 años de experiencia. Trabaja con clientes en México, Colombia, Chile, Estados Unidos, Canadá, Italia y Panamá, con un enfoque en resultados y no en plantillas genéricas."
+    },
+    {
+      "id": "servicios",
+      "pregunta": "¿Qué servicios ofrecen?",
+      "palabras": ["servicios", "ofrecen", "catalogo", "catálogo"],
+      "respuesta": "Desarrollo y diseño de páginas web, optimización y posicionamiento SEO, branding y ADN de marca, marketing digital, tiendas en línea (e-commerce), planes de hosting y soporte, integraciones y APIs, aplicaciones web a la medida, contenido con IA y agentes de IA."
+    },
+    {
+      "id": "web",
+      "pregunta": "¿Qué incluye una página web?",
+      "palabras": ["pagina", "página", "web", "sitio", "landing", "wordpress", "incluye"],
+      "respuesta": "El sitio web informativo publicado incluye hasta 10 secciones, diseño responsive para móvil, tablet y escritorio, optimización de velocidad, SEO básico, panel de administración, integración con redes sociales, formularios de contacto, y Google Analytics y Maps. Se trabaja con CMS como WordPress, Joomla y Drupal, o con desarrollo a medida en HTML, CSS, JavaScript y frameworks como Angular, React y Vue. Precio publicado: desde $3,820 MXN (800.000 COP)."
+    },
+    {
+      "id": "apps",
+      "pregunta": "¿Hacen aplicaciones web a la medida?",
+      "palabras": ["aplicacion", "aplicación", "aplicaciones", "app", "medida", "sistema", "software", "crm", "reservas", "portal"],
+      "respuesta": "Sí. Rayman Design desarrolla aplicaciones web a la medida: sistemas de gestión internos, plataformas de reservas, portales de clientes, calculadoras especializadas, herramientas empresariales y APIs e integraciones. Se cotiza según el proyecto."
+    },
+    {
+      "id": "agentes",
+      "pregunta": "¿Qué hacen los agentes de IA de Rayman Design?",
+      "palabras": ["agente", "agentes", "ia", "inteligencia", "artificial", "chatbot", "bot", "automatizar", "automatización"],
+      "respuesta": "Son asistentes de IA diseñados a la medida que se conectan a tus sistemas y ejecutan tareas concretas, como consultar tu CRM o ERP, disparar flujos de trabajo o generar reportes. Antes de que el agente haga cualquier acción se definen su alcance, sus permisos, las fuentes de datos autorizadas y sus límites, con supervisión humana donde realmente importa. La IA es el copiloto: una persona revisa y el cliente aprueba antes de la entrega final."
+    },
+    {
+      "id": "seo",
+      "pregunta": "¿Qué incluye el SEO?",
+      "palabras": ["seo", "google", "posicionamiento", "buscadores", "aparecer"],
+      "respuesta": "El SEO básico publicado incluye optimización de imágenes, estructura de contenido, meta títulos y descripciones, Google Analytics, Google Search Console, sitemap XML y velocidad de carga. Viene incluido en el desarrollo web o cuesta desde $3,000 MXN (630.000 COP) por separado. La estrategia SEO completa trabaja arquitectura de información, palabras clave según la intención de búsqueda y autoridad de dominio."
+    },
+    {
+      "id": "marketing",
+      "pregunta": "¿Manejan marketing digital y redes sociales?",
+      "palabras": ["marketing", "redes", "facebook", "instagram", "ads", "anuncios", "publicidad", "campañas"],
+      "respuesta": "Sí. La gestión de marketing digital incluye manejo de redes sociales, creación de contenido, Google Ads y Facebook Ads, email marketing, SEO intermedio, Google Business Profile y reportes mensuales. Precio publicado: desde $6,000 MXN al mes (1.260.000 COP)."
+    },
+    {
+      "id": "branding",
+      "pregunta": "¿Diseñan logos e imagen corporativa?",
+      "palabras": ["logo", "logotipo", "marca", "branding", "imagen corporativa", "identidad"],
+      "respuesta": "Sí. La imagen corporativa completa incluye logotipo, manual de identidad, paleta de colores y tipografías, papelería, plantillas para redes sociales y firma de email. Precio publicado: desde $8,000 MXN."
+    },
+    {
+      "id": "contenido_ia",
+      "pregunta": "¿Crean contenido con IA?",
+      "palabras": ["contenido", "textos", "posts", "copy", "guiones", "imagenes", "imágenes", "blog"],
+      "respuesta": "Sí. El servicio de contenido con IA incluye textos para sitios web, descripciones de productos, posts para redes, newsletters, artículos de blog, guiones para video, copy publicitario y generación de imágenes. Precio publicado: desde $2,000 MXN al mes por 10 piezas."
+    },
+    {
+      "id": "hosting",
+      "pregunta": "¿Ofrecen hosting y mantenimiento?",
+      "palabras": ["hosting", "hospedaje", "servidor", "dominio", "ssl", "correo", "correos", "mantenimiento"],
+      "respuesta": "Sí. El hosting incluye certificado SSL, un respaldo gratuito al mes, correos corporativos, soporte técnico y panel de control, desde $1,200 MXN al año (250.000 COP). El mantenimiento web mensual incluye actualizaciones, monitoreo de seguridad, optimización de velocidad y 2 horas de ajustes al mes por $2,150 MXN al mes (450.000 COP)."
+    },
+    {
+      "id": "paquetes",
+      "pregunta": "¿Tienen paquetes?",
+      "palabras": ["paquete", "paquetes", "emprendedor", "profesional", "premium", "combo"],
+      "respuesta": "Hay tres paquetes publicados: Emprendedor por $25,000 MXN (sitio de 5 páginas, logo e identidad básica, Google Business, 1 año de hosting, SEO básico y capacitación); Profesional por $45,000 MXN (hasta 10 páginas, identidad completa, redes, SEO avanzado, hosting premium y 2 meses de mantenimiento); y Premium por $80,000 MXN (sitio y aplicación web, identidad completa, 3 meses de marketing, 20 piezas de contenido con IA, hosting premium y 6 meses de mantenimiento)."
+    },
+    {
+      "id": "tiempos",
+      "pregunta": "¿Cuánto tiempo toma un proyecto?",
+      "palabras": ["tiempo", "tarda", "demora", "semanas", "cuánto tiempo", "plazo", "entrega"],
+      "respuesta": "Tiempos publicados: sitio web básico de 2 a 3 semanas, sitio complejo de 4 a 6 semanas, aplicación web de 6 a 12 semanas y diseño gráfico de 3 a 7 días."
+    },
+    {
+      "id": "pago",
+      "pregunta": "¿Cómo es la forma de pago?",
+      "palabras": ["pago", "pagar", "anticipo", "forma de pago", "precio", "cuesta", "costo", "cotización", "cotizacion"],
+      "respuesta": "Se paga un 50% de anticipo para iniciar y el 50% restante al entregar el proyecto. Los servicios mensuales se pagan por adelantado. La cotización detallada se entrega en 24 a 48 horas después de la consulta inicial."
+    },
+    {
+      "id": "proceso",
+      "pregunta": "¿Cómo es el proceso de trabajo?",
+      "palabras": ["proceso", "pasos", "cómo trabajan", "como trabajan", "consulta", "metodología"],
+      "respuesta": "1) Consulta inicial gratuita. 2) Propuesta personalizada en 24 a 48 horas. 3) Anticipo del 50% y contrato. 4) Desarrollo con actualizaciones constantes. 5) Revisión y ajustes, con hasta 2 rondas incluidas. 6) Entrega, pago final y capacitación. 7) Soporte de 30 a 60 días."
+    },
+    {
+      "id": "revisiones",
+      "pregunta": "¿Incluye revisiones?",
+      "palabras": ["revisiones", "cambios", "ajustes", "modificaciones", "correcciones"],
+      "respuesta": "Sí, se incluyen hasta 2 rondas de ajustes. Los cambios adicionales se cotizan aparte."
+    },
+    {
+      "id": "autogestion",
+      "pregunta": "¿Puedo actualizar mi sitio yo mismo?",
+      "palabras": ["actualizar", "yo mismo", "administrar", "panel", "capacitación", "capacitacion", "editar"],
+      "respuesta": "Sí. Te capacitan en el uso del panel y te dejan videos tutoriales y un manual de usuario."
+    },
+    {
+      "id": "soporte",
+      "pregunta": "¿Qué pasa después de la entrega?",
+      "palabras": ["después", "despues", "soporte", "garantía", "garantia", "postventa"],
+      "respuesta": "Se incluyen de 30 a 60 días de soporte. Después puedes contratar mantenimiento o manejar el sitio por tu cuenta."
+    },
+    {
+      "id": "internacional",
+      "pregunta": "¿Trabajan con clientes fuera de México o Colombia?",
+      "palabras": ["fuera", "internacional", "otros países", "estados unidos", "latinoamérica", "remoto", "país", "pais"],
+      "respuesta": "Sí. Trabajan con clientes en toda Latinoamérica y otros países, con un proceso 100% remoto y pagos internacionales aceptados."
+    },
+    {
+      "id": "contacto",
+      "pregunta": "¿Cómo los contacto?",
+      "palabras": ["contacto", "contactar", "teléfono", "telefono", "whatsapp", "correo", "email", "agendar", "cita", "llamar"],
+      "respuesta": "Puedes escribir a info@raymandesign.com, por WhatsApp al +57 315 8422523 o al celular +52 1 55 6907 5236. También puedes agendar una consulta gratuita de 30 minutos, sin compromiso, desde https://www.raymandesign.com/contactenos/."
+    }
+  ],
+  "sugeridas": [
+    "¿Cuánto tiempo toma una página web?",
+    "¿Qué hacen los agentes de IA de Rayman Design?",
+    "¿Cómo es la forma de pago?",
+    "¿Trabajan con clientes fuera de México?"
+  ]
+}

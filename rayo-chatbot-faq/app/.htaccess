@@ -1,0 +1,2 @@
+# Protección extra por si esta carpeta termina dentro de public_html por error.
+Require all denied

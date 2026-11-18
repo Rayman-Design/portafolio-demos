@@ -1,0 +1,25 @@
+<!--
+  Este es el archivo del proyecto. Aquí le decimos a .NET qué tipo de app es y con qué versión trabaja.
+  Es parecido al pom.xml de Maven en Java o al package.json de Node.
+-->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- Usamos .NET 10, que es la versión con soporte largo (LTS) en este momento. -->
+    <TargetFramework>net10.0</TargetFramework>
+
+    <!-- Con esto el compilador nos avisa cuando algo podría venir vacío (null) y no lo estamos revisando. -->
+    <Nullable>enable</Nullable>
+
+    <!-- Esto nos ahorra escribir los "using" más comunes en cada archivo (System, System.Linq, etc.). -->
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <RootNamespace>PeliculasApi</RootNamespace>
+  </PropertyGroup>
+
+  <!--
+    No agregamos paquetes externos a propósito: todo lo que usamos ya viene incluido en .NET.
+    Así el proyecto compila sin descargar nada extra y es más fácil de entender.
+  -->
+
+</Project>

@@ -1,0 +1,66 @@
+# Peticiones de prueba para la API de películas.
+# Ábrelo en Visual Studio, Rider o en VS Code con la extensión REST Client
+# y dale clic a "Send Request" encima de cada petición.
+# Antes, arranca la API con: dotnet run
+
+@base = http://localhost:5080
+
+### 1. Comprobar que la API está viva
+GET {{base}}/
+
+### 2. Listar todas las películas
+GET {{base}}/api/peliculas
+
+### 3. Listar solo las comedias
+GET {{base}}/api/peliculas?genero=comedia
+
+### 4. Traer una película por id
+GET {{base}}/api/peliculas/1
+
+### 5. Pedir una que no existe (debe dar 404)
+GET {{base}}/api/peliculas/999
+
+### 6. Crear una película (debe dar 201)
+POST {{base}}/api/peliculas
+Content-Type: application/json
+
+{
+  "titulo": "Noches de Papantla",
+  "director": "Elena Vargas",
+  "anio": 2024,
+  "genero": "Drama",
+  "duracionMinutos": 101,
+  "calificacion": 7.9
+}
+
+### 7. Crear con datos malos (debe dar 400 con la lista de errores)
+POST {{base}}/api/peliculas
+Content-Type: application/json
+
+{
+  "titulo": "",
+  "director": "Nadie",
+  "anio": 1500,
+  "genero": "Drama",
+  "duracionMinutos": 0,
+  "calificacion": 15
+}
+
+### 8. Actualizar la película 2 (debe dar 200)
+PUT {{base}}/api/peliculas/2
+Content-Type: application/json
+
+{
+  "titulo": "Café para cuatro",
+  "director": "Martín Ocampo",
+  "anio": 2022,
+  "genero": "Comedia",
+  "duracionMinutos": 99,
+  "calificacion": 7.8
+}
+
+### 9. Borrar la película 4 (debe dar 204)
+DELETE {{base}}/api/peliculas/4
+
+### 10. Borrarla otra vez (ahora debe dar 404)
+DELETE {{base}}/api/peliculas/4
