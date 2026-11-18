@@ -11,6 +11,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 API_HOST, API_PORT = "127.0.0.1", 5080
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGE = os.path.join(HERE, "explorador.html")
+POSTERS = os.path.join(HERE, "posters")
 MAX_BODY = 8 * 1024
 
 
@@ -36,6 +37,16 @@ class Handler(BaseHTTPRequestHandler):
     def _page(self):
         with open(PAGE, "rb") as f:
             self._send(200, f.read(), "text/html; charset=utf-8")
+
+    def _poster(self, name):
+        # Solo sirve archivos .jpg de la carpeta posters/, sin subcarpetas.
+        if "/" in name or not name.endswith(".jpg") or name.startswith("."):
+            return self._send(404)
+        path = os.path.join(POSTERS, name)
+        if not os.path.isfile(path):
+            return self._send(404)
+        with open(path, "rb") as f:
+            self._send(200, f.read(), "image/jpeg")
 
     def _forward(self):
         length = int(self.headers.get("Content-Length") or 0)
@@ -66,6 +77,8 @@ class Handler(BaseHTTPRequestHandler):
         path = self.path.split("?", 1)[0]
         if path in ("/explorador", "/explorador/") and self.command in ("GET", "HEAD"):
             return self._page()
+        if path.startswith("/posters/") and self.command in ("GET", "HEAD"):
+            return self._poster(path[len("/posters/"):])
         if path == "/favicon.ico":
             return self._send(204)
         return self._forward()

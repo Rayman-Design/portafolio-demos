@@ -163,6 +163,8 @@ Se compiló con el SDK 10.0.115 en Linux (Ubuntu), sin advertencias ni errores, 
 
 La carpeta `explorador-de-prueba/` trae una página sencilla con botones para probar la API desde el navegador, más un pequeño servidor en Python que la sirve y reenvía las peticiones a la API. Es solo una interfaz de demostración, no un panel de administración de producción, y no forma parte del proyecto .NET: la API responde en JSON por sí sola.
 
+En la lista, cada película sale en un bloque con su póster, su título, el director, el año, el género y la calificación. Los pósters de las cuatro películas de ejemplo son ilustraciones originales creadas para esta demo y están en `explorador-de-prueba/posters/`. La API no guarda imágenes: la página de prueba busca el póster por el título, y una película que agregues tú sale con su inicial en lugar de póster.
+
 Para usarla, con la API corriendo en el puerto 5080:
 
 ```bash
@@ -173,7 +175,7 @@ python3 proxy.py
 Y abre http://localhost:8080/explorador en el navegador.
 
 <p align="center">
-  <img src="../docs/capturas/peliculas-api-explorador.png" alt="Explorador de prueba de la API de películas con la lista de películas de ejemplo" width="360">
+  <img src="../docs/capturas/peliculas-api-explorador.png" alt="Explorador de prueba de la API de películas: cada película de ejemplo con su póster, director, año, género y calificación" width="360">
 </p>
 
 ## Qué demuestra

@@ -15,10 +15,10 @@ Este repositorio reúne aplicaciones de demostración hechas en Rayman Design pa
 
 Una API REST para un catálogo de películas: listar, filtrar por género, consultar, crear, actualizar y borrar. Valida los datos y responde los errores en español, con los códigos HTTP correctos (200, 201, 204, 400 y 404). Guarda los datos en memoria, así que al reiniciarla vuelve a las películas de ejemplo.
 
-Incluye una guía paso a paso del código y un explorador de prueba: una página sencilla con botones para probar la API desde el navegador. Ese explorador es solo una interfaz de demostración, no un panel de administración.
+Incluye una guía paso a paso del código y un explorador de prueba: una página sencilla con botones para probar la API desde el navegador. En el explorador, cada película sale con su póster, su título, el director, el año, el género y la calificación. Los pósters son ilustraciones originales creadas para esta demo. Ese explorador es solo una interfaz de demostración, no un panel de administración.
 
 <p align="center">
-  <img src="docs/capturas/peliculas-api-explorador.png" alt="Explorador de prueba de la API de películas con la lista de películas de ejemplo" width="360">
+  <img src="docs/capturas/peliculas-api-explorador.png" alt="Explorador de prueba de la API de películas: cada película de ejemplo con su póster, director, año, género y calificación" width="360">
 </p>
 
 ### Rayo, chatbot de preguntas frecuentes

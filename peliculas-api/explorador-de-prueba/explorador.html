@@ -25,6 +25,13 @@ button.sec{background:transparent;color:var(--ink);border-color:var(--rule)}
 .card b{font-family:var(--serif);font-size:17px}
 .facts{color:var(--muted);font-size:14px}
 .card .row{margin-top:8px}
+.peli{display:flex;gap:12px;align-items:flex-start}
+.poster{flex:0 0 84px;width:84px;height:126px;border-radius:6px;object-fit:cover;background:var(--rule);border:1px solid var(--rule)}
+.poster.vacio{display:flex;align-items:center;justify-content:center;font:600 26px/1 var(--serif);color:var(--muted)}
+.peli-info{flex:1;min-width:0}
+.peli-info b{display:block;margin-bottom:2px}
+.peli .row{gap:6px}
+.peli button{padding:4px 8px;font-size:13px}
 .card button{padding:5px 10px;font-size:14px}
 label{display:block;font-size:14px;color:var(--muted);margin:8px 0 3px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
@@ -78,12 +85,21 @@ async function api(method,url,body){
   $('raw').textContent=txt?(typeof data==='string'?data:JSON.stringify(data,null,2)):'(sin cuerpo)';
   return {ok:r.ok,status:r.status,data};
 }
+// Pósters de las películas de ejemplo. La API no guarda imágenes: esta página de prueba
+// las busca por título en la carpeta posters/. Una película nueva sale con su inicial.
+const normal=s=>String(s??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const POSTERS=new Set(['el-ultimo-pixel','cafe-para-tres','la-ruta-del-colibri','codigo-en-la-niebla']);
+function posterHtml(p){
+  const k=normal(p.titulo);
+  if(POSTERS.has(k))return '<img class="poster" src="/posters/'+k+'.jpg" alt="Póster de '+esc(p.titulo)+'" width="76" height="114">';
+  return '<div class="poster vacio" aria-hidden="true">'+esc((String(p.titulo||'?').trim()[0]||'?').toUpperCase())+'</div>';
+}
 async function cargar(genero){
   const url='/api/peliculas'+(genero?'?genero='+encodeURIComponent(genero):'');
   const r=await api('GET',url);const l=$('lista');
   if(!r.ok||!Array.isArray(r.data)){l.innerHTML='<p class="err">No se pudo cargar la lista.</p>';return}
   if(!r.data.length){l.innerHTML='<p class="facts">No hay películas con ese género.</p>';return}
-  l.innerHTML=r.data.map(p=>'<div class="card"><b>'+esc(p.titulo)+'</b><div class="facts">'+esc(p.director)+', '+esc(p.anio)+', '+esc(p.genero)+', '+esc(p.duracionMinutos)+' min'+(p.calificacion!=null?', '+esc(p.calificacion)+'/10':', sin calificación')+'</div><div class="row"><span class="chip">id '+esc(p.id)+'</span><button class="sec" data-ver="'+p.id+'">Ver (GET)</button><button class="sec" data-editar="'+p.id+'">Editar (PUT)</button><button class="sec" data-borrar="'+p.id+'">Borrar (DELETE)</button></div></div>').join('');
+  l.innerHTML=r.data.map(p=>'<div class="card peli">'+posterHtml(p)+'<div class="peli-info"><b>'+esc(p.titulo)+'</b><div class="facts">'+esc(p.director)+' · '+esc(p.anio)+' · '+esc(p.genero)+' · '+(p.calificacion!=null?esc(p.calificacion)+'/10':'sin calificación')+'</div><div class="row"><span class="chip">id '+esc(p.id)+'</span><button class="sec" data-ver="'+p.id+'">Ver (GET)</button><button class="sec" data-editar="'+p.id+'">Editar (PUT)</button><button class="sec" data-borrar="'+p.id+'">Borrar (DELETE)</button></div></div></div>').join('');
 }
 function limpiar(){['fid','ftitulo','fdirector','fanio','fgenero','fduracion','fcalif'].forEach(i=>$(i).value='');$('tituloForm').textContent='Agregar película';$('btnGuardar').textContent='Crear (POST)';$('btnCancelar').hidden=true}
 $('lista').addEventListener('click',async e=>{
