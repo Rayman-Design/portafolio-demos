@@ -23,7 +23,9 @@ Rayo es el asistente de Rayman Design. En modo demo responde con las preguntas f
 
 Cuida lo básico de una demo pública: límites de uso por visitante y por día, bloqueo de correos y teléfonos para que nadie comparta datos personales, y la llave nunca llega al navegador.
 
-![Rayo respondiendo una pregunta frecuente en modo demo](docs/capturas/rayo-chatbot-faq.png)
+<p align="center">
+  <img src="docs/capturas/rayo-chatbot-faq.png" alt="Rayo respondiendo una pregunta frecuente en modo demo" width="360">
+</p>
 
 ## Cómo probarlas
 

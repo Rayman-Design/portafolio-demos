@@ -2,7 +2,9 @@
 
 Rayo es un asistente web que responde preguntas sobre Rayman Design con las preguntas frecuentes públicas de [raymandesign.com](https://www.raymandesign.com). Es una demo para la sección IA Labs del sitio: en modo demo funciona sin IA en vivo, sin llamar a Google y sin costo.
 
-![Rayo respondiendo una pregunta frecuente en modo demo](../docs/capturas/rayo-chatbot-faq.png)
+<p align="center">
+  <img src="../docs/capturas/rayo-chatbot-faq.png" alt="Rayo respondiendo una pregunta frecuente en modo demo" width="360">
+</p>
 
 ## Cómo funciona
 
