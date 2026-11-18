@@ -11,11 +11,15 @@ Este repositorio reúne aplicaciones de demostración hechas en Rayman Design pa
 
 ### API de películas en .NET 10
 
+![La ruta del colibrí, una de las películas de ejemplo de la API](docs/capturas/peliculas-api-portada.jpg)
+
 Una API REST para un catálogo de películas: listar, filtrar por género, consultar, crear, actualizar y borrar. Valida los datos y responde los errores en español, con los códigos HTTP correctos (200, 201, 204, 400 y 404). Guarda los datos en memoria, así que al reiniciarla vuelve a las películas de ejemplo.
 
 Incluye una guía paso a paso del código y un explorador de prueba: una página sencilla con botones para probar la API desde el navegador. Ese explorador es solo una interfaz de demostración, no un panel de administración.
 
-![Explorador de prueba de la API de películas](docs/capturas/peliculas-api-explorador.png)
+<p align="center">
+  <img src="docs/capturas/peliculas-api-explorador.png" alt="Explorador de prueba de la API de películas con la lista de películas de ejemplo" width="360">
+</p>
 
 ### Rayo, chatbot de preguntas frecuentes
 

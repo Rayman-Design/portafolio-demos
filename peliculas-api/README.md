@@ -1,8 +1,21 @@
 # API de películas en C# y .NET
 
+![La ruta del colibrí, una de las películas de ejemplo del catálogo](../docs/capturas/peliculas-api-portada.jpg)
+
 Una API REST sencilla para administrar un catálogo de películas: listar, consultar, crear, actualizar y borrar (CRUD). Es un proyecto demostrativo de Rayman Design, hecho para practicar .NET y mostrar en el portafolio cómo se arma una API ordenada.
 
-Todas las películas son **inventadas**. No usa APIs externas, imágenes ni datos con licencia de terceros.
+Todas las películas son **inventadas**. No usa APIs externas ni datos con licencia de terceros. La imagen de portada es una ilustración creada para este repositorio a partir de *La ruta del colibrí*, una de las películas de ejemplo.
+
+## Películas de ejemplo
+
+Al arrancar, la API trae estas cuatro películas en memoria:
+
+| Id | Título | Director | Año | Género | Calificación |
+|---|---|---|---|---|---|
+| 1 | El último píxel | Lucía Andrade | 2019 | Ciencia ficción | 8.1 |
+| 2 | Café para tres | Martín Ocampo | 2021 | Comedia | 7.4 |
+| 3 | La ruta del colibrí | Sofía Herrera | 2017 | Aventura | 8.6 |
+| 4 | Código en la niebla | Andrés Quintero | 2023 | Suspenso | Sin calificación |
 
 Para entender el código línea por línea, lee **GUIA-PASO-A-PASO.md**. Este archivo es solo para arrancarlo y probarlo.
 
@@ -159,7 +172,9 @@ python3 proxy.py
 
 Y abre http://localhost:8080/explorador en el navegador.
 
-![Explorador de prueba de la API de películas](../docs/capturas/peliculas-api-explorador.png)
+<p align="center">
+  <img src="../docs/capturas/peliculas-api-explorador.png" alt="Explorador de prueba de la API de películas con la lista de películas de ejemplo" width="360">
+</p>
 
 ## Qué demuestra
 
